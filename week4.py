@@ -56,8 +56,8 @@ class Customer(Archivable): # responsible for storing customer information and p
         self.orders = []
         super().__init__(self, name) # initialises the log file
 
-    def __del__(self):
-        self._delete_log_file() # delete sensitive log information upon deletion
+    # def __del__(self): # python shutdown deletes objects, and triggers this method. commented out for demo purposes
+    #     self._delete_log_file() # delete sensitive log information upon deletion
 
     def _log_init(self): # adds class-specific information in the log file
         self.update_archive(f"Initial address: {self.address}")
